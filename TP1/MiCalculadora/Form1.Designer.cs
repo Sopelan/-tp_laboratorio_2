@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNumero1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNumero2 = new System.Windows.Forms.TextBox();
+            this.lblResultado = new System.Windows.Forms.Label();
+            this.cmbOperador = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtNumero1
             // 
-            this.textBox1.Location = new System.Drawing.Point(67, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;            // 
+            this.txtNumero1.Location = new System.Drawing.Point(67, 78);
+            this.txtNumero1.Name = "txtNumero1";
+            this.txtNumero1.Size = new System.Drawing.Size(100, 20);
+            this.txtNumero1.TabIndex = 0;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(44, 188);
@@ -52,6 +54,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Operar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnOpera_Click);
             // 
             // button2
             // 
@@ -61,6 +64,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // button3
             // 
@@ -70,6 +74,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Cerrar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnCerra_CLick);
             // 
             // button4
             // 
@@ -79,6 +84,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Convertir a binario";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnConvertirABinario);
             // 
             // button5
             // 
@@ -88,34 +94,46 @@
             this.button5.TabIndex = 7;
             this.button5.Text = "Convertir a decimal";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.btnConvertirADecimal);
             // 
-            // textBox2
+            // txtNumero2
             // 
-            this.textBox2.Location = new System.Drawing.Point(214, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtNumero2.Location = new System.Drawing.Point(394, 78);
+            this.txtNumero2.Name = "txtNumero2";
+            this.txtNumero2.Size = new System.Drawing.Size(100, 20);
+            this.txtNumero2.TabIndex = 2;
             // 
-            // textBox3
+            // lblResultado
             // 
-            this.textBox3.Location = new System.Drawing.Point(394, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.lblResultado.AutoSize = true;
+            this.lblResultado.Location = new System.Drawing.Point(448, 34);
+            this.lblResultado.Name = "lblResultado";
+            this.lblResultado.Size = new System.Drawing.Size(0, 13);
+            this.lblResultado.TabIndex = 9;
+            // 
+            // cmbOperador
+            // 
+            this.cmbOperador.FormattingEnabled = true;
+            this.cmbOperador.ItemHeight = 13;
+            this.cmbOperador.Location = new System.Drawing.Point(204, 78);
+            this.cmbOperador.Name = "cmbOperador";
+            this.cmbOperador.Size = new System.Drawing.Size(121, 21);
+            this.cmbOperador.TabIndex = 1;
             // 
             // FormCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 306);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cmbOperador);
+            this.Controls.Add(this.lblResultado);
+            this.Controls.Add(this.txtNumero2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNumero1);
             this.Name = "FormCalculadora";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -125,14 +143,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNumero1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNumero2;
+        private System.Windows.Forms.Label lblResultado;
+        private System.Windows.Forms.ComboBox cmbOperador;
     }
 }
 

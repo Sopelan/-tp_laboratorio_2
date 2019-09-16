@@ -31,9 +31,9 @@ namespace Entidades
         }
         private double ValidarNumero(string strNumero)
         {
-            bool validar = int.TryParse(strNumero, out int num);
+            bool validar = double.TryParse(strNumero, out double num);
             if (validar)
-                return Convert.ToDouble(num);
+                return num;
             return 0;
         }
         public string BinarioDecimal(string binario)
@@ -64,7 +64,7 @@ namespace Entidades
         {
             if (int.TryParse(numero, out int num))
                 return Convert.ToString(num, 2);
-            return "numero invalido";
+            return "Numero invalido";
 
         }
         public static double operator +(Numero n1 , Numero n2)

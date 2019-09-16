@@ -15,7 +15,7 @@ namespace Entidades
             else
                 return "+";
         }
-        public double Operar(Numero num1 , Numero num2 , string operador)
+        public static double Operar(Numero num1 , Numero num2 , string operador)
         {
             double retorno =0;
             switch (ValidarOperador(operador))
