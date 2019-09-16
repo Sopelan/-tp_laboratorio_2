@@ -15,6 +15,26 @@ namespace Entidades
             else
                 return "+";
         }
-        public double Operar(Numero num1)
+        public double Operar(Numero num1 , Numero num2 , string operador)
+        {
+            double retorno =0;
+            switch (ValidarOperador(operador))
+            {
+                case "+":
+                    retorno = num1 + num2;
+                    break;
+                case "-":
+                    retorno = num1 - num2;
+                    break;
+                case "/":
+                    retorno = num1 / num2;
+                    break;
+                case "*":
+                    retorno = num1 * num2;
+                    break; 
+            }
+            return retorno;
+            
+        }
     }
 }

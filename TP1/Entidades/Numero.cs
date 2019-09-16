@@ -10,7 +10,7 @@ namespace Entidades
     {
         private double numero;
 
-        public string setNumero
+        private string setNumero
         {
             set
             {
@@ -20,6 +20,14 @@ namespace Entidades
         public Numero()
         {
             numero = 0;
+        }
+        public Numero(double numero)
+        {
+            setNumero = Convert.ToString(numero);
+        }
+        public Numero(string numero)
+        {
+            setNumero = numero;
         }
         private double ValidarNumero(string strNumero)
         {
@@ -59,6 +67,24 @@ namespace Entidades
             return "numero invalido";
 
         }
-
+        public static double operator +(Numero n1 , Numero n2)
+        {
+            return n1.numero + n2.numero;
+        }
+        public static double operator -(Numero n1, Numero n2)
+        {
+            return n1.numero - n2.numero;
+        }
+        public static double operator *(Numero n1 , Numero n2)
+        {
+            return n1.numero * n2.numero;
+        }
+        public static double operator /(Numero n1 , Numero n2)
+        {
+            if (n2.numero == 0)
+                return double.MinValue;
+            else
+                return n1.numero / n2.numero;
+        }
     }
 }
