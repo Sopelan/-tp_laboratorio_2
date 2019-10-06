@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Entidades_2018;
 namespace TP_02_2018
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
