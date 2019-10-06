@@ -36,16 +36,17 @@ namespace Entidades_2018
         /// <returns></returns>
         public virtual string Mostrar()
         {
-            return this.ToString();
+            string retorno = (string) this;
+            return retorno;
         }
 
         public static  explicit operator  string (Producto p)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("CODIGO DE BARRAS:  " + p.codigoDeBarras + "\r\n" );
-            sb.AppendLine("MARCA          : " + p.marca.ToString() + "\r\n");
-            sb.AppendLine("COLOR EMPAQUE  : " + p.colorPrimarioEmpaque.ToString() + "\r\n" );
+            sb.AppendLine("CODIGO DE BARRAS:  " + p.codigoDeBarras  );
+            sb.AppendLine("MARCA          : " + p.marca.ToString() );
+            sb.AppendLine("COLOR EMPAQUE  : " + p.colorPrimarioEmpaque.ToString() );
             sb.AppendLine("---------------------");
 
             return sb.ToString();

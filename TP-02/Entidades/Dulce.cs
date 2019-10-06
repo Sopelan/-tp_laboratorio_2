@@ -28,9 +28,8 @@ namespace Entidades_2018
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("DULCE");
-            sb.AppendLine(this.Mostrar());
+            sb.AppendLine(base.Mostrar());
             sb.AppendLine("CALORIAS : " + this.CantidadCalorias);
-            sb.AppendLine("");
             sb.AppendLine("---------------------");
 
             return sb.ToString();
