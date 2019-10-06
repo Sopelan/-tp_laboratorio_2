@@ -57,15 +57,19 @@ namespace Entidades_2018
             sb.AppendLine("");
             foreach (Producto v in c.productos)
             {
+
                 switch (tipo)
                 {
                     case ETipo.Snacks:
+                        if(v is Snacks)
                         sb.AppendLine(v.Mostrar());
                         break;
                     case ETipo.Dulce:
+                        if(v is Dulce)
                         sb.AppendLine(v.Mostrar());
                         break;
                     case ETipo.Leche:
+                        if(v is Leche)
                         sb.AppendLine(v.Mostrar());
                         break;
                     default:
