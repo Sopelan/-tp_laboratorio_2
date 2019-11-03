@@ -8,20 +8,20 @@ namespace Entidades
 {
     public class DniInvalidoException :Exception
     {
-   
-        public DniInvalidoException(): base("El DNI ingresado no es un número válido.")
+        private static string mensajeBase = "El DNI ingresado no es un número válido.";
+        public DniInvalidoException(): base(mensajeBase)
         {
 
         }
-        public DniInvalidoException(string message): this("El DNI ingresado no es un número válido.", null)
+        public DniInvalidoException(string message): this(mensajeBase, null)
         {
 
         }
-        public DniInvalidoException(Exception e)  : base("El DNI ingresado no es un número válido.", e)
+        public DniInvalidoException(Exception e)  : base(mensajeBase, e)
         {
 
         }
-        public DniInvalidoException(string message, Exception e)  : base("El DNI ingresado no es un número válido." + message, e)
+        public DniInvalidoException(string message, Exception e)  : base(mensajeBase + message, e)
         {
 
         }

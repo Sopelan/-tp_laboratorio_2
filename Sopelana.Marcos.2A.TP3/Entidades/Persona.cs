@@ -146,6 +146,8 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("NOMBRE COMPLETO: "+ this.Apellido + ", " + this.Nombre);
+            sb.AppendLine("NACIONALIDAD " + this.Nacionalidad);
             return sb.ToString();
         }
 
