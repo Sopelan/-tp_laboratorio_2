@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entidades
+namespace Excepciones
 {
-    public class ArchivosException : Exception
+    public class AlumnoRepetidoException : Exception
     {
-        public ArchivosException(Exception innerException) { }
+        public AlumnoRepetidoException(){ }
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Entidades
+using EntidadesAbstractas;
+namespace Clases_Abstractas
 {
     public abstract class Universitario : Persona
     {
@@ -13,8 +13,8 @@ namespace Entidades
         public Universitario() { }
         public Universitario(int legajo , string nombre, string apellido,string dni,ENacionalidad nacionalidad) { }
 
-        private string MostrarDatos() { return ""; }
-        private string ParticiparEnClase() { return ""; }
+        protected virtual string MostrarDatos() { return ""; }
+        protected abstract string ParticiparEnClase();
 
         public static bool operator != (Universitario pg1,Universitario pg2) { return false; }
         public static bool operator == (Universitario pg1 ,Universitario pg2) { return false; }

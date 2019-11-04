@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Entidades
+using Excepciones;
+namespace EntidadesAbstractas
 {
-    public abstract class Persona
+    public abstract class Persona 
     {
         public enum ENacionalidad
         {
@@ -73,7 +73,9 @@ namespace Entidades
 
         public Persona()
         {
-
+            this.nombre = "";
+            this.apellido = "";
+            this.dni = 0;
         }
         public Persona(string nombre,string apellido,ENacionalidad nacionalidad):this()
         {

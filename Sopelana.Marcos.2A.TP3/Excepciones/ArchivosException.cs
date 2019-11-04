@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entidades
+namespace Excepciones
 {
-    public class SinProfesorException : Exception
+    public class ArchivosException : Exception
     {
-        public SinProfesorException(){ }
+        public ArchivosException(Exception innerException) { }
     }
 }
