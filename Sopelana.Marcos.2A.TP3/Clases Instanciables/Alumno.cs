@@ -19,17 +19,45 @@ namespace Clases_Instanciables
         private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
 
-        public Alumno() { }
-        public Alumno(int id , string nombre , string apellido ,string dni , ENacionalidad nacionalidad ,Universidad.EClases claseQueToma) { }
-        public Alumno(int id, string nombre,string apellido,string dni , ENacionalidad nacionalidad , Universidad.EClases claseQueToma,EEstadoCuenta estadoCuenta) { }
+        public Alumno() : base()
+        {
 
-        protected override string MostrarDatos() { return ""; }
-        protected override string ParticiparEnClase() { return ""; }
+        }
+        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma) : base(id, nombre, apellido, dni, nacionalidad)
+        {
+            this.claseQueToma = claseQueToma;
+        }
+        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma, EEstadoCuenta estadoCuenta) : this(id, nombre, apellido, dni, nacionalidad, claseQueToma)
+        {
+            this.estadoCuenta = estadoCuenta;
+        }
 
-        public static bool operator != (Alumno a , Universidad.EClases clase) { return false; }
-        public static bool operator == (Alumno a , Universidad.EClases clase) { return false; }
+        protected override string MostrarDatos()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.MostrarDatos());
+            sb.AppendLine("ESTADO DE CUENTA: " + this.estadoCuenta);
+            sb.Append(this.ParticiparEnClase());
+            return sb.ToString();
+        }
+        protected override string ParticiparEnClase()
+        {
+            return "TOMA CLASE DE " + this.claseQueToma;
+        }
 
-        public override string ToString(){return "";}
+        public static bool operator !=(Alumno a, Universidad.EClases clase)
+        {
+            return a.claseQueToma != clase;
+        }
+        public static bool operator ==(Alumno a, Universidad.EClases clase)
+        {
+            return a.claseQueToma == clase && a.estadoCuenta != EEstadoCuenta.Deudor;
+        }
+
+        public override string ToString()
+        {
+            return this.MostrarDatos();
+        }
 
     }
 }
