@@ -12,21 +12,91 @@ namespace Clases_Instanciables
         private Universidad.EClases clase;
         private Profesor instructor;
 
-        List<Alumno> Alumnos { get; set; }
-        Universidad.EClases Clase { get; set; }
-        Profesor Instructor { get; set; }
+        public List<Alumno> Alumnos
+        {
+            get
+            {
+                return this.alumnos;
+            }
+            set
+            {
+                alumnos = value;
+            }
+        }
+        public Universidad.EClases Clase
+        {
+            get
+            {
+                return this.clase;
+            }
+            set
+            {
+                this.clase = value;
+            }
+        }
+        public Profesor Instructor
+        {
+            get
+            {
+                return this.instructor;
+            }
+            set
+            {
+                this.instructor = value;
+            }
+        }
+    
 
-        private Jornada() { }
-        public Jornada(Universidad.EClases clase , Profesor instructor) { }
+        private Jornada()
+        {
+            this.alumnos = new List<Alumno>();
+        }
+
+        public Jornada(Universidad.EClases clase , Profesor instructor):this()
+        {
+            this.clase = clase;
+            this.instructor = instructor;
+        }
 
         public static bool Guardar(Jornada jornada) { return false; }
         public string Leer() { return ""; }
 
-        public static Jornada operator +(Jornada j,Alumno a) { return j; }
-        public static bool operator !=(Jornada j , Alumno a) { return false; }
-        public static bool operator ==(Jornada j, Alumno a) { return false; }
+        public static Jornada operator +(Jornada j,Alumno a)
+        {
+            bool flag = false;
+            for (int i = 0; i < j.alumnos.Count;i++)
+            {
+                if (j.alumnos[i] == a)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag == false)
+                j.alumnos.Add(a);
+            return j;
+        }
+        public static bool operator !=(Jornada j , Alumno a)
+        {
+            return !(j == a);
+        }
+        public static bool operator ==(Jornada j, Alumno a)
+        {
+            return (a == j.Clase);
+        }
 
-        public override string ToString() {return "";}
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("JORNADA:");
+            sb.AppendLine(this.instructor.ToString());
+            sb.AppendLine("ALUMNOS:");
+            foreach(Alumno a in this.alumnos)
+            {
+                sb.Append(a.ToString());
+            }
+            return sb.ToString();
+        }
 
     }
 }

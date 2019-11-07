@@ -34,7 +34,7 @@ namespace Clases_Abstractas
         }
         public static bool operator == (Universitario pg1 ,Universitario pg2)
         {
-            return pg1.Equals(pg2) && (pg1.legajo == pg2.legajo || pg1.DNI == pg2.DNI);
+            return (pg1.legajo == pg2.legajo || pg1.DNI == pg2.DNI);// falta algo
         }
 
         public override bool Equals(object obj)
