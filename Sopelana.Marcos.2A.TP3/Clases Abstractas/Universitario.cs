@@ -8,7 +8,7 @@ namespace Clases_Abstractas
 {
     public abstract class Universitario : Persona
     {
-        public int legajo;
+        private int legajo;
 
         public Universitario():base()
         {
@@ -22,7 +22,7 @@ namespace Clases_Abstractas
         protected virtual string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(this.ToString());
+            sb.AppendLine(base.ToString());
             sb.AppendLine("LEGAJO NUMERO: " + legajo);
             return sb.ToString();
         }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Excepciones;
+using Archivos;
 namespace Clases_Instanciables
 {
     public class Jornada
@@ -58,8 +59,18 @@ namespace Clases_Instanciables
             this.instructor = instructor;
         }
 
-        public static bool Guardar(Jornada jornada) { return false; }
-        public string Leer() { return ""; }
+        public static bool Guardar(Jornada jornada)
+        {
+            Texto texto = new Texto() ;
+            return texto.Guardar(@"C:\Users\sopelan1\Desktop\tp_laboratorio_2\Sopelana.Marcos.2A.TP3\2017-TP3-Archivos\archivo.txt", jornada.ToString());
+        }
+
+        public static string Leer()
+        {
+            Texto texto = new Texto();
+            texto.Leer(@"C:\Users\sopelan1\Desktop\tp_laboratorio_2\Sopelana.Marcos.2A.TP3\2017-TP3-Archivos\Jornada.txt", out string text  );
+            return text;
+        }
 
         public static Jornada operator +(Jornada j,Alumno a)
         {
@@ -74,6 +85,8 @@ namespace Clases_Instanciables
             }
             if (flag == false)
                 j.alumnos.Add(a);
+            
+
             return j;
         }
         public static bool operator !=(Jornada j , Alumno a)
@@ -88,13 +101,14 @@ namespace Clases_Instanciables
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("JORNADA:");
+            sb.Append("CLASE DE " + this.clase + " POR ");
             sb.AppendLine(this.instructor.ToString());
             sb.AppendLine("ALUMNOS:");
             foreach(Alumno a in this.alumnos)
             {
-                sb.Append(a.ToString());
+                sb.AppendLine(a.ToString());
             }
+            sb.AppendLine("<------------------------------------------------>");
             return sb.ToString();
         }
 

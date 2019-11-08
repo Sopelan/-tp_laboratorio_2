@@ -35,14 +35,14 @@ namespace Clases_Instanciables
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(base.MostrarDatos());
+            sb.AppendLine(base.MostrarDatos());
             sb.AppendLine("ESTADO DE CUENTA: " + this.estadoCuenta);
             sb.Append(this.ParticiparEnClase());
             return sb.ToString();
         }
         protected override string ParticiparEnClase()
         {
-            return "TOMA CLASE DE " + this.claseQueToma;
+            return "TOMA CLASES DE " + this.claseQueToma;
         }
 
         public static bool operator !=(Alumno a, Universidad.EClases clase)

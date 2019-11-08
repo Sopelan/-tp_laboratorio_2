@@ -52,7 +52,7 @@ namespace Clases_Instanciables
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(base.ToString());
+            sb.Append(base.MostrarDatos());
             sb.Append(this.ParticiparEnClase());
             return sb.ToString();
         }

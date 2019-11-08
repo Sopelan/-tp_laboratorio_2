@@ -104,14 +104,18 @@ namespace EntidadesAbstractas
                     }
                     else
                     {
-                        DniInvalidoException dniInvalidoException = new DniInvalidoException();
-                        Console.WriteLine(dniInvalidoException.Message);
+                        DniInvalidoException exception = new DniInvalidoException();
+                        Console.WriteLine(exception.Message);
+                        return 0;
                     }
                 }
                 else
                 {
-                    NacionalidadInvalidaException nacionalidades = new NacionalidadInvalidaException();
-                    Console.WriteLine(nacionalidades.Message);
+                    NacionalidadInvalidaException exception = new NacionalidadInvalidaException();
+                    Console.WriteLine(exception.Message);
+                    return 0;
+
+
                 }
             }
             else
@@ -122,11 +126,11 @@ namespace EntidadesAbstractas
                 }
                 else
                 {
-                    NacionalidadInvalidaException nacionalidades = new NacionalidadInvalidaException();
-                    Console.WriteLine(nacionalidades.Message);
+                    NacionalidadInvalidaException exception = new NacionalidadInvalidaException();
+                    Console.WriteLine(exception.Message);
+                    return 0;
                 }
             }
-            return 0;
         }
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
@@ -149,7 +153,7 @@ namespace EntidadesAbstractas
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("NOMBRE COMPLETO: "+ this.Apellido + ", " + this.Nombre);
-            sb.AppendLine("NACIONALIDAD " + this.Nacionalidad);
+            sb.AppendLine("NACIONALIDAD: " + this.Nacionalidad);
             return sb.ToString();
         }
 
