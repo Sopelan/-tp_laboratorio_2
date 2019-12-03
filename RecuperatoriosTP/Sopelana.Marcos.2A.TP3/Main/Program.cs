@@ -102,9 +102,8 @@ namespace Main
             catch (ArchivosException e)
             {
                 Console.WriteLine(e.Message);
-            }  
+            }
             Console.ReadKey();
-
         }
     }
 }

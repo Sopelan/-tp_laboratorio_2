@@ -94,47 +94,35 @@ namespace EntidadesAbstractas
         
         private int ValidarDni(ENacionalidad nacionalidad,int dato)
         {
-            if (nacionalidad == ENacionalidad.Argentino)
-            {
-                if(dato >=  1 && dato <= 89999999)
-                {
-                    if(dato >= 10000000)
-                    {
-                        return dato;
-                    }
-                    else
-                    {
-                        DniInvalidoException exception = new DniInvalidoException();
-                        Console.WriteLine(exception.Message);
-                        return 0;
-                    }
-                }
-                else
-                {
-                    NacionalidadInvalidaException exception = new NacionalidadInvalidaException();
-                    Console.WriteLine(exception.Message);
-                    return 0;
-
-
-                }
-            }
-            else
-            {
-                if(dato >= 90000000 && dato <= 99999999)
-                {
-                    return dato;
-                }
-                else
-                {
-                    NacionalidadInvalidaException exception = new NacionalidadInvalidaException();
-                    Console.WriteLine(exception.Message);
-                    return 0;
-                }
-            }
+            return ValidarDni(nacionalidad, dato.ToString());
         }
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
-            return ValidarDni(nacionalidad, Convert.ToInt32(dato));
+            if (int.TryParse(dato, out int result))
+            {
+                if (nacionalidad == ENacionalidad.Argentino)
+                {
+                    if (result >= 1 && result <= 89999999)
+                    {
+                        if (result >= 10000000)
+                            return result;
+                        else
+                            throw new DniInvalidoException();
+                    }
+                    else
+                        throw new NacionalidadInvalidaException();
+                }
+                else
+                {
+                    if (result >= 90000000 && result <= 99999999)
+                        return result;
+                    else
+                        throw new NacionalidadInvalidaException();
+                }
+            }
+            else
+                throw new DniInvalidoException();
+                
         }
         private string ValidarNombreApellido(string dato)
         {
