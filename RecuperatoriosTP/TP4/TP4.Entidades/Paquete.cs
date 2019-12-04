@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Threading;
 namespace TP4.Entidades
 {
     public class Paquete : IMostrar<Paquete>
@@ -52,7 +52,22 @@ namespace TP4.Entidades
             this.trackingID = trackingID;
         }
 
-        public void MockCicloDeVida() { }
+        public void MockCicloDeVida()
+        {
+            if (this.InformaEstado != null)
+            {
+                this.estado = EEstado.Ingresado;
+                this.InformaEstado(this, EventArgs.Empty);
+                Thread.Sleep(4000);
+                 this.estado = EEstado.Enviaje;
+                this.InformaEstado(this, EventArgs.Empty);
+                Thread.Sleep(4000);
+                this.estado = EEstado.Entregado;
+                this.InformaEstado(this, EventArgs.Empty);
+            }
+            else
+                throw new Exception("Paquete  posee evento pero no posee manejador");
+        }
         public string MostrarDatos(IMostrar<Paquete> elemento)
         {
             return string.Format("{0} para {1}", ((Paquete)elemento).TrackingID, ((Paquete)elemento).DireccionEntrega);

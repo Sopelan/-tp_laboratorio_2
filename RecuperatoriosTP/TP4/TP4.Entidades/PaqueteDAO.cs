@@ -3,10 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using
+using System.IO;
+using System.Data.SqlClient;
+
 namespace TP4.Entidades
 {
-    class PaqueteDAO
+    public static class PaqueteDAO
     {
+        private static SqlCommand comando;
+        private static SqlConnection conexion;
+        static PaqueteDAO()
+        {
+
+        }
+        public bool Insertar(Paquete p)
+        {
+
+        }
     }
 }
