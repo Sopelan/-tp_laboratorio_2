@@ -40,7 +40,7 @@ namespace TP4.Entidades
         public string MostrarDatos(IMostrar<List<Paquete>> elemento)
         {
             string mostrar = "";
-            foreach(Paquete p in ((List<Paquete>)elemento))
+            foreach(Paquete p in ((Correo)elemento).Paquetes)
             {
                 mostrar += string.Format("{0} para {1} ({2})", p.TrackingID, p.DireccionEntrega, p.Estado.ToString());
                 mostrar = "\n";
@@ -50,18 +50,22 @@ namespace TP4.Entidades
 
         public static Correo operator +(Correo c, Paquete p)
         {
-            bool esta;
+            bool esta = false ;
             for (int i = 0; i< c.Paquetes.Count;i++)
             {
                 if(c.Paquetes[i] == p)
                 {
+                    esta = true;
                     throw new TrackingIdRepetidoException("El paquete que intento ingresar , ya existe");
                 }
             }
-            c.Paquetes.Add(p);
-            Thread thread = new Thread(p.MockCicloDeVida);
-            c.mockPaquetes.Add(thread);
-            thread.Start();
+            if(esta == false)
+            {
+                c.Paquetes.Add(p);
+                Thread thread = new Thread(p.MockCicloDeVida);
+                c.mockPaquetes.Add(thread);
+                thread.Start();
+            } 
             return c;
         }
     }

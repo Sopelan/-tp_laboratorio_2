@@ -59,7 +59,7 @@ namespace TP4.Entidades
                 this.estado = EEstado.Ingresado;
                 this.InformaEstado(this, EventArgs.Empty);
                 Thread.Sleep(4000);
-                 this.estado = EEstado.Enviaje;
+                 this.estado = EEstado.EnViaje;
                 this.InformaEstado(this, EventArgs.Empty);
                 Thread.Sleep(4000);
                 this.estado = EEstado.Entregado;
@@ -92,7 +92,7 @@ namespace TP4.Entidades
         public enum EEstado
         {
             Ingresado,
-            Enviaje,
+            EnViaje,
             Entregado
         }
     }
