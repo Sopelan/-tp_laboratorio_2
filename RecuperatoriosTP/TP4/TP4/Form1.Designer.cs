@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsListas = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lstEstadoEnViaje = new System.Windows.Forms.ListBox();
             this.lstEstadoIngresado = new System.Windows.Forms.ListBox();
@@ -46,6 +46,7 @@
             this.lblTrackingID = new System.Windows.Forms.Label();
             this.rtbMostrar = new System.Windows.Forms.RichTextBox();
             this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsListas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -70,10 +71,12 @@
             this.btnMostrarTodos.UseVisualStyleBackColor = true;
             this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
             // 
-            // contextMenuStrip1
+            // cmsLista
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.cmsListas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mostrarToolStripMenuItem});
+            this.cmsListas.Name = "contextMenuStrip1";
+            this.cmsListas.Size = new System.Drawing.Size(181, 48);
             // 
             // groupBox1
             // 
@@ -122,6 +125,7 @@
             this.lstEstadoEntregado.Name = "lstEstadoEntregado";
             this.lstEstadoEntregado.Size = new System.Drawing.Size(219, 199);
             this.lstEstadoEntregado.TabIndex = 12;
+            this.lstEstadoEntregado.ContextMenuStrip = this.cmsListas;
             // 
             // lblEstadoEnViaje
             // 
@@ -199,11 +203,10 @@
             // 
             // mostrarToolStripMenuItem
             // 
-            this.mostrarToolStripMenuItem.Enabled = true;
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
             this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mostrarToolStripMenuItem.Text = "Mostrar...";
-            this.mostrarToolStripMenuItem.Click += mostrarToolStripMenuItem_Click;
+            this.mostrarToolStripMenuItem.Text = "Mostrar";
+            this.mostrarToolStripMenuItem.Click += new System.EventHandler(this.mostrarToolStripMenuItem_Click);
             // 
             // FrmPpal
             // 
@@ -216,6 +219,7 @@
             this.Name = "FrmPpal";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPpal_FormClosing);
+            this.cmsListas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -228,7 +232,7 @@
 
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnMostrarTodos;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip cmsListas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lstEstadoEnViaje;
         private System.Windows.Forms.ListBox lstEstadoIngresado;

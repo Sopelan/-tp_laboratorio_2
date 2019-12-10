@@ -40,7 +40,6 @@ namespace TP4
                 }
             }
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -55,7 +54,6 @@ namespace TP4
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
             this.MostrarInformacion<List<Paquete>>((IMostrar<List<Paquete>>)correo);
@@ -63,10 +61,6 @@ namespace TP4
         private void FrmPpal_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.correo.FinEntregas();
-        }
-        private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
         }
         private void paq_InformaEstado(object sender, EventArgs e)
         {
@@ -88,6 +82,11 @@ namespace TP4
                     elemento.MostrarDatos(elemento).Guardar("salida");
 
             }
+        }
+
+        private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
         }
     }
 }
