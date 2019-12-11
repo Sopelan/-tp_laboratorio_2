@@ -31,10 +31,8 @@ namespace TP4.Entidades
 
         public void FinEntregas()
         {
-            for(int i = 0; i< this.mockPaquetes.Capacity; i++)
-            {
-                this.mockPaquetes[i].Abort();
-            }
+            foreach(Thread t in this.mockPaquetes)
+               t.Abort();
         }
 
         public string MostrarDatos(IMostrar<List<Paquete>> elemento)
@@ -43,7 +41,7 @@ namespace TP4.Entidades
             foreach(Paquete p in ((Correo)elemento).Paquetes)
             {
                 mostrar += string.Format("{0} para {1} ({2})", p.TrackingID, p.DireccionEntrega, p.Estado.ToString());
-                mostrar = "\n";
+                mostrar += "\n";
             }
             return mostrar;
         }

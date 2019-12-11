@@ -49,7 +49,7 @@ namespace TP4
                 this.correo += paquete;
                 this.ActualizarEstados();
             }
-            catch (TrackingIdRepetidoException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -80,7 +80,6 @@ namespace TP4
                 this.rtbMostrar.Text = elemento.MostrarDatos(elemento);
                 if (elemento is Correo)
                     elemento.MostrarDatos(elemento).Guardar("salida");
-
             }
         }
 
